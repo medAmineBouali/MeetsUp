@@ -1,0 +1,143 @@
+/* Hero Section */
+.hero {
+    background: linear-gradient(to bottom, rgba(0, 68, 204, 0.8), rgba(0, 68, 204, 0.6)), center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 150px 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+}
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.hero .cta-button {
+    background-color: #ff9900;
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+.search {
+    padding: 40px;
+    background-color: #ffffff;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: -50px auto 20px;
+    max-width: 800px;
+}
+.search form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+.search input, .search button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.search button {
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.search button:hover {
+    background-color: #5A7EEA;
+}
+
+/* Spaces Section */
+.spaces {
+    padding: 110px 20px;
+    background-color: #f9f9f9;
+}
+.spaces h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #0044cc;
+}
+.space-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+.space-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+.space-item:hover {
+    transform: translateY(-10px);
+}
+.space-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.space-item h3 {
+    font-size: 20px;
+    margin: 15px 0;
+    color: #333;
+    text-align: center;
+}
+.space-item p {
+    font-size: 16px;
+    margin: 10px 15px;
+    text-align: center;
+    color: #666;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+.testimonials h2 {
+    margin-bottom: 40px;
+    font-size: 36px;
+    color: #0044cc;
+}
+.testimonial {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #555;
+}
+.testimonial p:last-child {
+    font-style: normal;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Footer */
+.footer {
+    background-color: #3e5fc3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+.footer a {
+    color: #ff9900;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
