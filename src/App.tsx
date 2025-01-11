@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "@/pages/Home";
+import AuthPage from "@/pages/Auth";
 import Layout from "@/Layout";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
         <Router>
             <Layout>
                 <Routes>
+                    <Route path="/auth" element={<AuthPage />} />
                     <Route path="/" element={<HomePage />} />
                 </Routes>
             </Layout>

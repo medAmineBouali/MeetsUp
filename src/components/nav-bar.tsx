@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Search } from 'lucide-react';
-import {useAuth} from "@/lib/Store.tsx";
+import { useAuth } from "@/lib/Store.tsx"; // Import authentication hook
 import logo from "@/assets/logo.png";
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
-    const { isLoggedIn, login, logout } = useAuth();
+    const { isLoggedIn, logout } = useAuth();
 
     const isGalleryPage = location.pathname.startsWith("/gallery"); // Detect /gallery pages
 
@@ -25,11 +25,11 @@ const NavBar = () => {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex h-full">
-                    <a href="#hero" className="text-white px-4 flex items-center h-full hover:bg-accent hover:text-yellow-400 transition">Accueil</a>
-                    <a href="#spaces" className="text-white px-4 flex items-center h-full hover:bg-accent hover:text-yellow-400 transition">Espaces</a>
-                    <a href="#pricing" className="text-white px-4 flex items-center h-full hover:bg-accent hover:text-yellow-400 transition">Tarifs</a>
-                    <a href="#about" className="text-white px-4 flex items-center h-full hover:bg-accent hover:text-yellow-400 transition">À propos</a>
-                    <a href="#contact" className="text-white px-4 flex items-center h-full hover:bg-accent hover:text-yellow-400 transition">Contact</a>
+                    <a href="/#hero" className="text-white px-4 flex items-center h-full hover:bg-accent hover:text-yellow-400 transition">Accueil</a>
+                    <a href="/#spaces" className="text-white px-4 flex items-center h-full hover:bg-accent hover:text-yellow-400 transition">Espaces</a>
+                    <a href="/#pricing" className="text-white px-4 flex items-center h-full hover:bg-accent hover:text-yellow-400 transition">Tarifs</a>
+                    <a href="/#about" className="text-white px-4 flex items-center h-full hover:bg-accent hover:text-yellow-400 transition">À propos</a>
+                    <a href="/#contact" className="text-white px-4 flex items-center h-full hover:bg-accent hover:text-yellow-400 transition">Contact</a>
                 </nav>
 
                 {/* Search Bar (Visible Only on Gallery Page) */}
@@ -42,10 +42,19 @@ const NavBar = () => {
                         />
                         <Search className="absolute left-3 text-gray-500"/> {/* Magnifying Glass Icon */}
 
-                        <a href="/login"
-                           className="hidden md:inline-block bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-yellow-600 transition ml-4">
-                            Connexion
-                        </a>
+                        {/* Authentication Button */}
+                        {isLoggedIn ? (
+                            <button
+                                onClick={logout}
+                                className="hidden md:inline-block bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition ml-4">
+                                Déconnexion
+                            </button>
+                        ) : (
+                            <a href="/auth"
+                               className="hidden md:inline-block bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-yellow-600 transition ml-4">
+                                Connexion
+                            </a>
+                        )}
                     </div>
                 ) : (
                     <div className="relative md:flex items-center">
@@ -56,13 +65,20 @@ const NavBar = () => {
                             Réserver un espace
                         </button>
 
-                        {/* Login Button (Hidden on Mobile) */}
-                        <a href="/login"
-                           className="hidden md:inline-block bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-yellow-600 transition ml-4">
-                            Connexion
-                        </a>
+                        {/* Authentication Button */}
+                        {isLoggedIn ? (
+                            <button
+                                onClick={logout}
+                                className="hidden md:inline-block bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition ml-4">
+                                Déconnexion
+                            </button>
+                        ) : (
+                            <a href="/auth"
+                               className="hidden md:inline-block bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-yellow-600 transition ml-4">
+                                Connexion
+                            </a>
+                        )}
                     </div>
-
                 )}
             </div>
 
@@ -79,11 +95,11 @@ const NavBar = () => {
             {/* Mobile Menu (Slide Down) */}
             {isOpen && (
                 <div className="md:hidden bg-primary w-full flex flex-col items-center py-4 space-y-3">
-                    <a href="#hero" className="text-white hover:bg-accent w-full text-center py-2 transition">Accueil</a>
-                    <a href="#spaces" className="text-white hover:bg-accent w-full text-center py-2 transition">Espaces</a>
-                    <a href="#pricing" className="text-white hover:bg-accent w-full text-center py-2 transition">Tarifs</a>
-                    <a href="#about" className="text-white hover:bg-accent w-full text-center py-2 transition">À propos</a>
-                    <a href="#contact" className="text-white hover:bg-accent w-full text-center py-2 transition">Contact</a>
+                    <a href="/#hero" className="text-white hover:bg-accent w-full text-center py-2 transition">Accueil</a>
+                    <a href="/#spaces" className="text-white hover:bg-accent w-full text-center py-2 transition">Espaces</a>
+                    <a href="/#pricing" className="text-white hover:bg-accent w-full text-center py-2 transition">Tarifs</a>
+                    <a href="/#about" className="text-white hover:bg-accent w-full text-center py-2 transition">À propos</a>
+                    <a href="/#contact" className="text-white hover:bg-accent w-full text-center py-2 transition">Contact</a>
 
                     {/* Show Search Bar in Mobile Menu for Gallery Page */}
                     {isGalleryPage && (
@@ -97,9 +113,19 @@ const NavBar = () => {
                         </div>
                     )}
 
-                    <a href="/login" className="bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-yellow-600 transition">
-                        Connexion
-                    </a>
+                    {/* Authentication Button for Mobile */}
+                    {isLoggedIn ? (
+                        <button
+                            onClick={logout}
+                            className="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition">
+                            Déconnexion
+                        </button>
+                    ) : (
+                        <a href="/auth"
+                           className="bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-yellow-600 transition">
+                            Connexion
+                        </a>
+                    )}
                 </div>
             )}
         </div>

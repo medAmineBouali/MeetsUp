@@ -11,8 +11,8 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="app-layout">
             <AuthProvider>
                 <NavBar />
-            </AuthProvider>
             <main>{children}</main>
+        </AuthProvider>
         </div>
     );
 };

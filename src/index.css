@@ -55,7 +55,11 @@
   width: 100%;
   height: 100%;
 }
-
+.auth-page {
+  background-image: url(assets/25444.jpg);
+  width: 100%;
+  height: 100%;
+}
 @layer base {
   * {
     @apply border-border;
