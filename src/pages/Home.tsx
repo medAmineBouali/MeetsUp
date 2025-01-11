@@ -1,5 +1,4 @@
 import "./homepage.css"
-import NavBar from "@/components/nav-bar";
 import bureau from '@/assets/7/2.jpg'
 import espacecolab from '@/assets/1/1.jpg'
 import salepriv from '@/assets/11/3.jpg'
@@ -8,7 +7,6 @@ const HomePage = () =>
 {
 
     return <div className="home-page d-flex">
-        <NavBar />
         <section id="hero" className="hero">
             <h1>Trouvez l'espace parfait pour travailler, étudier ou organiser une réunion</h1>
             <p>Réservez un espace moderne et flexible dans quelques clics.</p>
