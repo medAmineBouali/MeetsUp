@@ -46,7 +46,7 @@ const NavBar = () => {
                         {isLoggedIn ? (
                             <button
                                 onClick={logout}
-                                className="hidden md:inline-block bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition ml-4">
+                                className="hidden md:inline-block bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition ml-4">
                                 Déconnexion
                             </button>
                         ) : (
@@ -69,7 +69,7 @@ const NavBar = () => {
                         {isLoggedIn ? (
                             <button
                                 onClick={logout}
-                                className="hidden md:inline-block bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition ml-4">
+                                className="hidden md:inline-block bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition ml-4">
                                 Déconnexion
                             </button>
                         ) : (
@@ -117,7 +117,7 @@ const NavBar = () => {
                     {isLoggedIn ? (
                         <button
                             onClick={logout}
-                            className="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition">
+                            className="bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition">
                             Déconnexion
                         </button>
                     ) : (
