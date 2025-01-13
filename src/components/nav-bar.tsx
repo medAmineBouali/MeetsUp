@@ -1,17 +1,40 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Search } from 'lucide-react';
 import { useAuth } from "@/lib/Store.tsx"; // Import authentication hook
 import logo from "@/assets/logo.png";
+import { Toggle } from "@/components/ui/toggle"
+import { SunMoon } from 'lucide-react';
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
     const { isLoggedIn, logout } = useAuth();
-
     const isGalleryPage = location.pathname.startsWith("/gallery"); // Detect /gallery pages
 
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }, []);
+    
+      // Function to toggle theme
+      const toggleTheme = () => {
+        const root = document.documentElement;
+        const isDarkMode = root.classList.contains("dark");
+    
+        if (isDarkMode) {
+          root.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        } else {
+          root.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        }
+      };
     return (
         <div className="fixed top-0 left-0 w-full bg-primary shadow-lg z-50 flex flex-col">
             {/* Top Section */}
@@ -55,7 +78,9 @@ const NavBar = () => {
                                 Connexion
                             </a>
                         )}
+                    <Toggle onClick={toggleTheme} className="p-0 m-2 rounded-full bg-transparent text-primary-foreground"><SunMoon /></Toggle>
                     </div>
+
                 ) : (
                     <div className="relative md:flex items-center">
                         {/* Réserver un espace Button (Always Visible) */}
@@ -78,6 +103,7 @@ const NavBar = () => {
                                 Connexion
                             </a>
                         )}
+                        <Toggle onClick={toggleTheme} className="p-0 m-2 rounded-full bg-transparent text-primary-foreground"><SunMoon /></Toggle>
                     </div>
                 )}
             </div>
@@ -126,6 +152,7 @@ const NavBar = () => {
                             Connexion
                         </a>
                     )}
+                    <Toggle onClick={toggleTheme} className="p-0 m-2 rounded-full bg-transparent text-primary-foreground"><SunMoon /></Toggle>
                 </div>
             )}
         </div>

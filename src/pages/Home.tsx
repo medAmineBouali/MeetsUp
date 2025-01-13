@@ -6,7 +6,7 @@ import salepriv from '@/assets/11/3.jpg'
 const HomePage = () =>
 {
 
-    return <div className="home-page d-flex">
+    return <div className="home-page d-flex bg-background">
         <section id="hero" className="hero">
             <h1>Trouvez l'espace parfait pour travailler, étudier ou organiser une réunion</h1>
             <p>Réservez un espace moderne et flexible dans quelques clics.</p>

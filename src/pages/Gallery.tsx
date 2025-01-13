@@ -190,7 +190,7 @@ const GalleryPage = () => {
 
     return (
 
-        <div className="min-h-screen mt-16 bg-gray-100">
+        <div className="min-h-screen mt-16 bg-background">
             <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-12 py-10">
                 <FilterBar/>
 
