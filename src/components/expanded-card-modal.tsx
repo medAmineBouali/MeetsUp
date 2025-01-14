@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Star, X } from 'lucide-react'
+import {  useNavigate } from "react-router-dom";
 
 interface ExpandedCardModalProps {
     card: {
@@ -21,6 +22,7 @@ interface ExpandedCardModalProps {
 
 const ExpandedCardModal: React.FC<ExpandedCardModalProps> = ({ card, onClose }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const navigate = useNavigate();
 
     const handleOutsideClick = (event: React.MouseEvent<HTMLDivElement>) => {
         if ((event.target as HTMLElement).id === "modal-overlay") {
@@ -114,7 +116,7 @@ const ExpandedCardModal: React.FC<ExpandedCardModalProps> = ({ card, onClose }) 
                                 >
                                     Contact Owner
                                 </a>
-                                <button className="bg-destructive rounded-full text-white py-3 px-4 font-bold transition-all hover:bg-green-700">
+                                <button onClick={() => navigate("/reservation")} className="bg-destructive rounded-full text-white py-3 px-4 font-bold transition-all hover:bg-green-700">
                                     Reserve Now
                                 </button>
                             </div>

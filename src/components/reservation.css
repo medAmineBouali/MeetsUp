@@ -1,0 +1,147 @@
+
+input[type="text"], input[type="email"], input[type="tel"],
+input[type="date"], input[type="time"], input[type="number"],
+textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius:px;
+    box-shadow: 0px 1px 0px #0044cc;
+    font-size: 14px;
+    background-color: transparent;
+    transition: all 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff;
+    background-color: transparent;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color:  #0044cc;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0px 3px 6px rgba(0, 123, 255, 0.4);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.6);
+}
+
+.btn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.btn span {
+    margin: 0 5px;
+}
+
+.btn .arrow {
+    font-size: 16px;
+}
+#finish-reservation{
+    background-color: #ff9900 !important;
+}
+#finish-reservation:hover{
+    background-color: #5A7EEA !important;
+}
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    height: 20px;
+}
+.option label {
+    display: flex; /* Active Flexbox */
+    align-items: center; /* Centre verticalement les éléments */
+    justify-content: center; /* Centre horizontalement les éléments */
+    gap: 10px; /* Ajoute un espacement entre l'image et le texte */
+}
+
+.payment-icon {
+    width: 30px; /* Ajustez la taille de l'image si nécessaire */
+    height: auto;
+}
+
+
+.option:hover {
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+label {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+}
+.centragepm {
+    /* display: flex;  */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;    /* Centre verticalement */
+    text-align: center;     /* Assure le centrage du texte */
+    height: 100%;           /* Adapte la hauteur si nécessaire */
+
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+    animation: push 0.3s ease forwards;
+}
+
+@keyframes push {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
