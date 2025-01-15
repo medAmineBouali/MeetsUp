@@ -12,7 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
             <AuthProvider>
                 <NavBar />
             <main>{children}</main>
-        </AuthProvider>
+            </AuthProvider>
         </div>
     );
 };
